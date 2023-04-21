@@ -38,8 +38,19 @@ public class ModelImpl implements Model{
         if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
         }
-        Lamp l = new Lamp(r,c);
-        lampList.remove(l);
+
+        if(getActivePuzzle().getCellType(r,c) == CellType.CORRIDOR && isLamp(r,c)) {
+            for (Lamp l : lampList) {
+                if (l.getRow() == r && l.getCol() == c) {
+                    lampList.remove(l);
+                }
+
+            }
+        }
+        else{
+            throw new IllegalArgumentException();
+        }
+
     }
 
     @Override
