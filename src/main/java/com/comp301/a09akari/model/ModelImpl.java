@@ -177,6 +177,7 @@ public class ModelImpl implements Model{
 
     @Override
     public void resetPuzzle() {
+        lampList = new ArrayList<Lamp>();
 
     }
 
