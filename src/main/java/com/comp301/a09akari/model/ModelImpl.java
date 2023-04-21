@@ -107,7 +107,7 @@ public class ModelImpl implements Model{
             return true;
         }
 
-        for(int i = r; i < getActivePuzzle().getHeight(); i++){
+        for(int i = r+1; i < getActivePuzzle().getHeight(); i++){
 
             if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
                 break;
@@ -121,7 +121,7 @@ public class ModelImpl implements Model{
         }
 
         //Across column negative
-        for(int i = r; i >= 0 ; i--){
+        for(int i = r-1; i >= 0 ; i--){
 
             if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
                 break;
@@ -135,7 +135,7 @@ public class ModelImpl implements Model{
         }
 
         //Across Row Positive
-        for(int i = c; i < getActivePuzzle().getWidth() ; i++){
+        for(int i = c+1; i < getActivePuzzle().getWidth() ; i++){
 
             if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
                 break;
@@ -150,7 +150,7 @@ public class ModelImpl implements Model{
         }
 
             //Across Row negative
-            for(int i = c; i >= 0 ; i--){
+            for(int i = c-1; i >= 0 ; i--){
 
                 if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
                     break;
