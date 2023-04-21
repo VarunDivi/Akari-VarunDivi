@@ -215,25 +215,24 @@ public class ModelImpl implements Model{
                     return true;
                 }
             }
-            return false;
+
         }
 
             //Across Row negative
-            for(int i = c-1; i >= 0 ; i--){
+        for(int i = c-1; i >= 0 ; i--){
 
-                if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
-                    break;
-                }
-
-                if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
-                    if(isLamp(r,i)){
-                        return true;
-                    }
-                }
+            if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
+                break;
             }
 
-            return false;
+            if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
+                if(isLamp(r,i)){
+                    return true;
+                }
+            }
         }
+        return false;
+    }
 
 
     @Override
