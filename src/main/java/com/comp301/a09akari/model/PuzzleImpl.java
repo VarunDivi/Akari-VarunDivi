@@ -13,12 +13,12 @@ public class PuzzleImpl implements Puzzle{
 
     @Override
     public int getWidth() {
-        return 0;
+        return board.length;
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return board[0].length;
     }
 
     @Override

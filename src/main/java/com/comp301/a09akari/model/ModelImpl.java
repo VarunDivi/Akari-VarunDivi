@@ -19,17 +19,13 @@ public class ModelImpl implements Model{
         modelObservers = new ArrayList<ModelObserver>();
         puzzleIndex = 0;
 
-        if(puzzleIndex >= 0) {
-            currentPuzzle = library.getPuzzle(puzzleIndex);
-        }
-
 
     }
 
 
     @Override
     public void addLamp(int r, int c) {
-        if(r < 0 || c < 0 || r >= currentPuzzle.getHeight() || c >= currentPuzzle.getWidth()){
+        if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
         }
         lampList.add(new Lamp(r,c));
@@ -37,7 +33,7 @@ public class ModelImpl implements Model{
 
     @Override
     public void removeLamp(int r, int c) {
-        if(r < 0 || c < 0 || r >= currentPuzzle.getHeight() || c >= currentPuzzle.getWidth()){
+        if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
         }
         lampList.remove(new Lamp(r,c));
@@ -53,7 +49,7 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLamp(int r, int c) {
-        if(r < 0 || c < 0 || r >= currentPuzzle.getHeight() || c >= currentPuzzle.getWidth()){
+        if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
         }
 
@@ -72,7 +68,7 @@ public class ModelImpl implements Model{
 
     @Override
     public Puzzle getActivePuzzle() {
-        return currentPuzzle;
+        return library.getPuzzle(getActivePuzzleIndex());
     }
 
     @Override
