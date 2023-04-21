@@ -26,6 +26,7 @@ public class ModelImpl implements Model{
         }
         if(getActivePuzzle().getCellType(r,c) == CellType.CORRIDOR){
             lampList.add(new Lamp(r,c));
+            notifyObservers();
         }
         else{
             throw new IllegalArgumentException();
@@ -53,6 +54,7 @@ public class ModelImpl implements Model{
 
         if(toRemove != null){
             lampList.remove(toRemove);
+            notifyObservers();
         }
 
     }
@@ -247,6 +249,7 @@ public class ModelImpl implements Model{
     public void setActivePuzzleIndex(int index) {
         if(index >= 0 && index < library.size()) {
             puzzleIndex = index;
+            notifyObservers();
         }
         else{
             throw new IllegalArgumentException();
@@ -261,6 +264,7 @@ public class ModelImpl implements Model{
     @Override
     public void resetPuzzle() {
         lampList = new ArrayList<Lamp>();
+        notifyObservers();
 
     }
 
