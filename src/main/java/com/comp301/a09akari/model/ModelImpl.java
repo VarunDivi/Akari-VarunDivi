@@ -87,6 +87,8 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLampIllegal(int r, int c) {
+        int count = 0;
+
         if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
         }
@@ -96,11 +98,48 @@ public class ModelImpl implements Model{
         }
 
         for(Lamp l : lampList){
+            if(l.getCol() == c && l.getRow() == r){
+                count++;
+            }
+        }
+        if(count > 1){
+            return true;
+        }
+
+
+        for(Lamp l : lampList){
+
             if(l.getCol() == c){
-                return true;
+                if(l.getRow() < r){
+                    for(int i = l.getRow() ; i < r ; i++) {
+                        if (getActivePuzzle().getCellType(i, c) != CellType.CORRIDOR) {
+                            return true;
+                        }
+                    }
+                }
+                if(l.getRow() > r){
+                    for(int i = r ; i < l.getRow() ; i++) {
+                        if (getActivePuzzle().getCellType(i, c) != CellType.CORRIDOR) {
+                            return true;
+                        }
+                    }
+                }
             }
             if(l.getRow() == r){
-                return true;
+                if(l.getCol() < c){
+                    for(int i = l.getCol() ; i < c ; i++) {
+                        if (getActivePuzzle().getCellType(r, i) != CellType.CORRIDOR) {
+                            return true;
+                        }
+                    }
+                }
+                if(l.getCol() > c){
+                    for(int i = c ; i < l.getCol() ; i++) {
+                        if (getActivePuzzle().getCellType(r, i) != CellType.CORRIDOR) {
+                            return true;
+                        }
+                    }
+                }
             }
         }
 
