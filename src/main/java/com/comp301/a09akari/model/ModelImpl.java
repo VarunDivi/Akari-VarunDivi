@@ -72,6 +72,11 @@ public class ModelImpl implements Model{
             throw new IndexOutOfBoundsException();
         }
 
+
+        if(getActivePuzzle().getCellType(r,c) != CellType.CORRIDOR){
+            throw new IllegalArgumentException();
+        }
+
         for(Lamp l : lampList){
             if(l.getRow() == r && l.getCol() == c){
                 return true;
