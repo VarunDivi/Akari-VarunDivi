@@ -287,9 +287,7 @@ public class ModelImpl implements Model{
             if(i < getActivePuzzle().getHeight() && i >= 0) {
                 if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
                     if (isLamp(i,c)) {
-                        if (!isLampIllegal(i, c)) {
-                            count++;
-                        }
+                        count++;
                     }
                 }
             }
@@ -299,9 +297,7 @@ public class ModelImpl implements Model{
             if(j < getActivePuzzle().getWidth() && j >= 0) {
                 if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
                     if (isLamp(r, j)) {
-                        if (!isLampIllegal(r, j)) {
-                            count++;
-                        }
+                        count++;
                     }
                 }
             }
