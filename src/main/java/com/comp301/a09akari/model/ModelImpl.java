@@ -281,7 +281,8 @@ public class ModelImpl implements Model{
                     }
 
                 }
-                else if(getActivePuzzle().getCellType(i,j) == CellType.CLUE){
+
+                if(getActivePuzzle().getCellType(i,j) == CellType.CLUE){
                     if(!isClueSatisfied(i,j)){
                         return false;
                     }
