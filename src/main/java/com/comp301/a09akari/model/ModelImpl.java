@@ -88,6 +88,7 @@ public class ModelImpl implements Model{
     @Override
     public boolean isLampIllegal(int r, int c) {
         int count = 0;
+        ArrayList<Lamp> lampListCopy = new ArrayList<Lamp>(lampList);
 
         if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
@@ -96,18 +97,20 @@ public class ModelImpl implements Model{
         if(!isLamp(r,c)){
             throw new IllegalArgumentException();
         }
+        lampListCopy.remove(new Lamp(r,c));
 
-        for(Lamp l : lampList){
+        for(Lamp l : lampListCopy){
             if(l.getCol() == c && l.getRow() == r){
-                count++;
+                return true;
             }
         }
-        if(count > 1){
-            return true;
-        }
+//        if(count > 1){
+//            return true;
+//        }
 
 
-        for(Lamp l : lampList){
+
+        for(Lamp l : lampListCopy){
             if(l.getCol() == c){
                 if(l.getRow() < r){
                     for(int i = l.getRow() ; i < r ; i++) {
