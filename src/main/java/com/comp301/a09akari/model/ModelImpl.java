@@ -152,6 +152,7 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLampIllegal(int r, int c) {
+        int count = 0;
 
         if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
@@ -161,12 +162,74 @@ public class ModelImpl implements Model{
             throw new IllegalArgumentException();
         }
 
-        if(isLit(r,c)){
+        for(Lamp l : lampList){
+            if(l.getCol() == c && l.getRow() == r){
+                count++;
+            }
+        }
+
+        if(count > 1){
             return true;
         }
-        else{
-            return false;
+
+
+
+        for(int i = r+1; i < getActivePuzzle().getHeight(); i++){
+
+            if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR){
+                if(isLamp(i,c)){
+                    return true;
+                }
+            }
         }
+
+        //Across column negative
+        for(int i = r-1; i >= 0 ; i--){
+
+            if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR){
+                if(isLamp(i,c)){
+                    return true;
+                }
+            }
+        }
+
+        //Across Row Positive
+        for(int i = c+1; i < getActivePuzzle().getWidth() ; i++){
+
+            if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
+                if(isLamp(r,i)){
+                    return true;
+                }
+            }
+
+        }
+
+            //Across Row negative
+        for(int i = c-1; i >= 0 ; i--){
+
+            if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
+                if(isLamp(r,i)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
@@ -219,7 +282,7 @@ public class ModelImpl implements Model{
                     }
                 }
                 else if(getActivePuzzle().getCellType(i,j) == CellType.CLUE){
-                    if(isClueSatisfied(i,j)){
+                    if(!isClueSatisfied(i,j)){
                         allClue = false;
                     }
                 }
