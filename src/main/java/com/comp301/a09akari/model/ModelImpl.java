@@ -108,38 +108,39 @@ public class ModelImpl implements Model{
 
 
         for(Lamp l : lampList){
-
             if(l.getCol() == c){
                 if(l.getRow() < r){
                     for(int i = l.getRow() ; i < r ; i++) {
                         if (getActivePuzzle().getCellType(i, c) != CellType.CORRIDOR) {
-                            return true;
+                            return false;
                         }
                     }
                 }
                 if(l.getRow() > r){
                     for(int i = r ; i < l.getRow() ; i++) {
                         if (getActivePuzzle().getCellType(i, c) != CellType.CORRIDOR) {
-                            return true;
+                            return false;
                         }
                     }
                 }
+                return true;
             }
             if(l.getRow() == r){
                 if(l.getCol() < c){
                     for(int i = l.getCol() ; i < c ; i++) {
                         if (getActivePuzzle().getCellType(r, i) != CellType.CORRIDOR) {
-                            return true;
+                            return false;
                         }
                     }
                 }
                 if(l.getCol() > c){
                     for(int i = c ; i < l.getCol() ; i++) {
                         if (getActivePuzzle().getCellType(r, i) != CellType.CORRIDOR) {
-                            return true;
+                            return false;
                         }
                     }
                 }
+                return true;
             }
         }
 
