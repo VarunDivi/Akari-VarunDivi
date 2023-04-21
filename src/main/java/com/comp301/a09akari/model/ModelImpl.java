@@ -266,35 +266,29 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isSolved() {
-        boolean allLit = true;
-        boolean allClue = true;
-        boolean noIllegal = true;
 
         for(int i = 0; i < getActivePuzzle().getHeight(); i++){
             for(int j = 0; j < getActivePuzzle().getWidth(); j++){
                 if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR){
                     if(!isLit(i,j)){
-                        allLit = false;
+                        return false;
                     }
 
-                    if(isLampIllegal(i,j)){
-                        noIllegal = false;
+                    if(isLamp(i,j)){
+                        if(isLampIllegal(i,j)){
+                            return false;
+                        }
                     }
+
                 }
                 else if(getActivePuzzle().getCellType(i,j) == CellType.CLUE){
                     if(!isClueSatisfied(i,j)){
-                        allClue = false;
+                        return false;
                     }
                 }
             }
         }
-
-        if(allLit && allClue && noIllegal){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return true;
     }
 
     @Override
