@@ -59,77 +59,75 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLit(int r, int c) {
-//
-//        if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
-//            throw new IndexOutOfBoundsException();
-//        }
-//
-//        if(getActivePuzzle().getCellType(r,c) != CellType.CORRIDOR){
-//            throw new IllegalArgumentException();
-//        }
-//        else{
-//            if(isLamp(r,c)){
-//                return true;
-//            }
-//        }
-//
-//        for(int i = r+1; i < getActivePuzzle().getHeight(); i++){
-//
-//            if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
-//                break;
-//            }
-//
-//            if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR){
-//                if(isLamp(i,c)){
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        //Across column negative
-//        for(int i = r-1; i >= 0 ; i--){
-//
-//            if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
-//                break;
-//            }
-//
-//            if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR){
-//                if(isLamp(i,c)){
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        //Across Row Positive
-//        for(int i = c+1; i < getActivePuzzle().getWidth() ; i++){
-//
-//            if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
-//                break;
-//            }
-//
-//            if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
-//                if(isLamp(r,i)){
-//                    return true;
-//                }
-//            }
-//            return false;
-//        }
-//
-//        //Across Row negative
-//        for(int i = c-1; i >= 0 ; i--){
-//
-//            if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
-//                break;
-//            }
-//
-//            if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
-//                if(isLamp(r,i)){
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        return false;
+
+        if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
+            throw new IndexOutOfBoundsException();
+        }
+
+        if(getActivePuzzle().getCellType(r,c) != CellType.CORRIDOR){
+            throw new IllegalArgumentException();
+        }
+        else{
+            if(isLamp(r,c)){
+                return true;
+            }
+        }
+
+        for(int i = r+1; i < getActivePuzzle().getHeight(); i++){
+
+            if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR){
+                if(isLamp(i,c)){
+                    return true;
+                }
+            }
+        }
+
+        //Across column negative
+        for(int i = r-1; i >= 0 ; i--){
+
+            if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR){
+                if(isLamp(i,c)){
+                    return true;
+                }
+            }
+        }
+
+        //Across Row Positive
+        for(int i = c+1; i < getActivePuzzle().getWidth() ; i++){
+
+            if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
+                if(isLamp(r,i)){
+                    return true;
+                }
+            }
+        }
+
+        //Across Row negative
+        for(int i = c-1; i >= 0 ; i--){
+
+            if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
+                if(isLamp(r,i)){
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 
