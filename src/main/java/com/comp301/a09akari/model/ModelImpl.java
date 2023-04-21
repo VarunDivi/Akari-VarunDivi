@@ -289,7 +289,7 @@ public class ModelImpl implements Model{
                 int count = 0;
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth()) {
+                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
                             if (isLamp(i, j)) {
                                 if (!isLampIllegal(i, j)) {
                                     count++;
@@ -308,7 +308,7 @@ public class ModelImpl implements Model{
                 count = 0;
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth()) {
+                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
                             if (isLamp(i, j)) {
                                 if (!isLampIllegal(i, j)) {
                                     count++;
@@ -328,7 +328,7 @@ public class ModelImpl implements Model{
                 count = 0;
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth()) {
+                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
                             if (isLamp(i, j)) {
                                 if (!isLampIllegal(i, j)) {
                                     count++;
@@ -348,7 +348,7 @@ public class ModelImpl implements Model{
                 count = 0;
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth()) {
+                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
                             if (isLamp(i, j)) {
                                 if (!isLampIllegal(i, j)) {
                                     count++;
@@ -368,7 +368,7 @@ public class ModelImpl implements Model{
                 count = 0;
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth()) {
+                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
                             if (isLamp(i, j)) {
                                 if (!isLampIllegal(i, j)) {
                                     count++;
