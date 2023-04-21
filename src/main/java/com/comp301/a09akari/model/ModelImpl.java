@@ -88,7 +88,6 @@ public class ModelImpl implements Model{
     @Override
     public boolean isLampIllegal(int r, int c) {
         int count = 0;
-        ArrayList<Lamp> lampListCopy = new ArrayList<Lamp>(lampList);
 
         if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
@@ -97,58 +96,76 @@ public class ModelImpl implements Model{
         if(!isLamp(r,c)){
             throw new IllegalArgumentException();
         }
-        lampListCopy.remove(new Lamp(r,c));
 
-        for(Lamp l : lampListCopy){
+        for(Lamp l : lampList){
             if(l.getCol() == c && l.getRow() == r){
-                return true;
-            }
-        }
-//        if(count > 1){
-//            return true;
-//        }
-
-
-
-        for(Lamp l : lampListCopy){
-            if(l.getCol() == c){
-                if(l.getRow() < r){
-                    for(int i = l.getRow() ; i < r ; i++) {
-                        if (getActivePuzzle().getCellType(i, c) != CellType.CORRIDOR) {
-                            return false;
-                        }
-                    }
-                }
-                if(l.getRow() > r){
-                    for(int i = r ; i < l.getRow() ; i++) {
-                        if (getActivePuzzle().getCellType(i, c) != CellType.CORRIDOR) {
-                            return false;
-                        }
-                    }
-                }
-                return true;
-            }
-            if(l.getRow() == r){
-                if(l.getCol() < c){
-                    for(int i = l.getCol() ; i < c ; i++) {
-                        if (getActivePuzzle().getCellType(r, i) != CellType.CORRIDOR) {
-                            return false;
-                        }
-                    }
-                }
-                if(l.getCol() > c){
-                    for(int i = c ; i < l.getCol() ; i++) {
-                        if (getActivePuzzle().getCellType(r, i) != CellType.CORRIDOR) {
-                            return false;
-                        }
-                    }
-                }
-                return true;
+                count++;
             }
         }
 
-        return false;
-    }
+        if(count > 1){
+            return true;
+        }
+
+        for(int i = r; i < getActivePuzzle().getHeight(); i++){
+
+            if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR){
+                if(isLamp(i,c)){
+                    return true;
+                }
+            }
+        }
+
+        //Across column negative
+        for(int i = r; i >= 0 ; i--){
+
+            if(getActivePuzzle().getCellType(i,c) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR){
+                if(isLamp(i,c)){
+                    return true;
+                }
+            }
+        }
+
+        //Across Row Positive
+        for(int i = c; i < getActivePuzzle().getWidth() ; i++){
+
+            if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
+                break;
+            }
+
+            if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
+                if(isLamp(r,i)){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+            //Across Row negative
+            for(int i = c; i >= 0 ; i--){
+
+                if(getActivePuzzle().getCellType(r,i) != CellType.CORRIDOR){
+                    break;
+                }
+
+                if(getActivePuzzle().getCellType(r,i) == CellType.CORRIDOR){
+                    if(isLamp(r,i)){
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
 
     @Override
     public Puzzle getActivePuzzle() {
@@ -188,6 +205,23 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isClueSatisfied(int r, int c) {
+        if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
+            throw new IndexOutOfBoundsException();
+        }
+
+        if(getActivePuzzle().getCellType(r,c) != CellType.CLUE){
+            throw new IllegalArgumentException();
+        }
+
+//        for(Lamp l : lampList){
+//            switch(getActivePuzzle().getClue(r,c)){
+//                case 0:
+//                    if(!isLamp(r+1,c) && !isLamp(r,c+1) && !isLamp(r+1,c))
+//
+//
+//            }
+//        }
+
         return false;
     }
 
