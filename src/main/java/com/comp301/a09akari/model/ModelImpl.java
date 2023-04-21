@@ -290,9 +290,11 @@ public class ModelImpl implements Model{
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
                         if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if (isLamp(i, j)) {
-                                if (!isLampIllegal(i, j)) {
-                                    count++;
+                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
+                                if (isLamp(i, j)) {
+                                    if (!isLampIllegal(i, j)) {
+                                        count++;
+                                    }
                                 }
                             }
                         }
@@ -309,9 +311,11 @@ public class ModelImpl implements Model{
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
                         if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if (isLamp(i, j)) {
-                                if (!isLampIllegal(i, j)) {
-                                    count++;
+                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
+                                if (isLamp(i, j)) {
+                                    if (!isLampIllegal(i, j)) {
+                                        count++;
+                                    }
                                 }
                             }
                         }
@@ -329,9 +333,11 @@ public class ModelImpl implements Model{
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
                         if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if (isLamp(i, j)) {
-                                if (!isLampIllegal(i, j)) {
-                                    count++;
+                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
+                                if (isLamp(i, j)) {
+                                    if (!isLampIllegal(i, j)) {
+                                        count++;
+                                    }
                                 }
                             }
                         }
@@ -349,9 +355,11 @@ public class ModelImpl implements Model{
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
                         if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if (isLamp(i, j)) {
-                                if (!isLampIllegal(i, j)) {
-                                    count++;
+                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
+                                if (isLamp(i, j)) {
+                                    if (!isLampIllegal(i, j)) {
+                                        count++;
+                                    }
                                 }
                             }
                         }
@@ -369,9 +377,11 @@ public class ModelImpl implements Model{
                 for(int i = r - 1; i <= r+1; i++){
                     for(int j = c - 1; j <= c + 1; j++){
                         if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if (isLamp(i, j)) {
-                                if (!isLampIllegal(i, j)) {
-                                    count++;
+                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
+                                if (isLamp(i, j)) {
+                                    if (!isLampIllegal(i, j)) {
+                                        count++;
+                                    }
                                 }
                             }
                         }
