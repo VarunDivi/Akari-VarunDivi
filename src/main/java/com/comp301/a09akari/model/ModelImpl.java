@@ -247,6 +247,7 @@ public class ModelImpl implements Model{
 
     @Override
     public void setActivePuzzleIndex(int index) {
+        resetPuzzle();
         if(index >= 0 && index < library.size()) {
             puzzleIndex = index;
             notifyObservers();
