@@ -281,166 +281,39 @@ public class ModelImpl implements Model{
             throw new IllegalArgumentException();
         }
 
-
-
-        switch(getActivePuzzle().getClue(r,c)){
-            case 0:
-                int count = 0;
-                for(int i = r - 1; i <= r+1; i++){
-                    if(i < getActivePuzzle().getHeight() && i >= 0) {
-                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
-                            if (isLamp(i,c)) {
-                                if (!isLampIllegal(i, c)) {
-                                    count++;
-                                }
-                            }
+        //Counting adjacent lamps
+        int count = 0;
+        for(int i = r - 1; i <= r+1; i++){
+            if(i < getActivePuzzle().getHeight() && i >= 0) {
+                if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
+                    if (isLamp(i,c)) {
+                        if (!isLampIllegal(i, c)) {
+                            count++;
                         }
                     }
                 }
-                for(int j = c - 1; j <= c + 1; j++){
-                    if(j < getActivePuzzle().getWidth() && j >= 0) {
-                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
-                            if (isLamp(r, j)) {
-                                if (!isLampIllegal(r, j)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                if(count == 0){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-
-            case 1:
-                count = 0;
-                for(int i = r - 1; i <= r+1; i++){
-                    if(i < getActivePuzzle().getHeight() && i >= 0) {
-                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
-                            if (isLamp(i,c)) {
-                                if (!isLampIllegal(i, c)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                for(int j = c - 1; j <= c + 1; j++){
-                    if(j < getActivePuzzle().getWidth() && j >= 0) {
-                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
-                            if (isLamp(r, j)) {
-                                if (!isLampIllegal(r, j)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                if(count == 1){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-
-            case 2:
-                count = 0;
-                for(int i = r - 1; i <= r+1; i++){
-                    if(i < getActivePuzzle().getHeight() && i >= 0) {
-                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
-                            if (isLamp(i,c)) {
-                                if (!isLampIllegal(i, c)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                for(int j = c - 1; j <= c + 1; j++){
-                    if(j < getActivePuzzle().getWidth() && j >= 0) {
-                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
-                            if (isLamp(r, j)) {
-                                if (!isLampIllegal(r, j)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                if(count == 2){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-
-            case 3:
-                count = 0;
-                for(int i = r - 1; i <= r+1; i++){
-                    if(i < getActivePuzzle().getHeight() && i >= 0) {
-                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
-                            if (isLamp(i,c)) {
-                                if (!isLampIllegal(i, c)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                for(int j = c - 1; j <= c + 1; j++){
-                    if(j < getActivePuzzle().getWidth() && j >= 0) {
-                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
-                            if (isLamp(r, j)) {
-                                if (!isLampIllegal(r, j)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                if(count == 3){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-
-            case 4:
-                count = 0;
-                for(int i = r - 1; i <= r+1; i++){
-                    if(i < getActivePuzzle().getHeight() && i >= 0) {
-                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
-                            if (isLamp(i,c)) {
-                                if (!isLampIllegal(i, c)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                for(int j = c - 1; j <= c + 1; j++){
-                    if(j < getActivePuzzle().getWidth() && j >= 0) {
-                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
-                            if (isLamp(r, j)) {
-                                if (!isLampIllegal(r, j)) {
-                                    count++;
-                                }
-                            }
-                        }
-                    }
-                }
-                if(count == 4){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-
+            }
         }
-        return false;
+
+        for(int j = c - 1; j <= c + 1; j++){
+            if(j < getActivePuzzle().getWidth() && j >= 0) {
+                if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
+                    if (isLamp(r, j)) {
+                        if (!isLampIllegal(r, j)) {
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+
+        if(count == getActivePuzzle().getClue(r,c)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
     @Override
