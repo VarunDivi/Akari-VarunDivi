@@ -287,13 +287,22 @@ public class ModelImpl implements Model{
             case 0:
                 int count = 0;
                 for(int i = r - 1; i <= r+1; i++){
-                    for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
-                                if (isLamp(i, j)) {
-                                    if (!isLampIllegal(i, j)) {
-                                        count++;
-                                    }
+                    if(i < getActivePuzzle().getHeight() && i >= 0) {
+                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
+                            if (isLamp(i,c)) {
+                                if (!isLampIllegal(i, c)) {
+                                    count++;
+                                }
+                            }
+                        }
+                    }
+                }
+                for(int j = c - 1; j <= c + 1; j++){
+                    if(j < getActivePuzzle().getWidth() && j >= 0) {
+                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
+                            if (isLamp(r, j)) {
+                                if (!isLampIllegal(r, j)) {
+                                    count++;
                                 }
                             }
                         }
@@ -305,16 +314,26 @@ public class ModelImpl implements Model{
                 else{
                     return false;
                 }
+
             case 1:
                 count = 0;
                 for(int i = r - 1; i <= r+1; i++){
-                    for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
-                                if (isLamp(i, j)) {
-                                    if (!isLampIllegal(i, j)) {
-                                        count++;
-                                    }
+                    if(i < getActivePuzzle().getHeight() && i >= 0) {
+                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
+                            if (isLamp(i,c)) {
+                                if (!isLampIllegal(i, c)) {
+                                    count++;
+                                }
+                            }
+                        }
+                    }
+                }
+                for(int j = c - 1; j <= c + 1; j++){
+                    if(j < getActivePuzzle().getWidth() && j >= 0) {
+                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
+                            if (isLamp(r, j)) {
+                                if (!isLampIllegal(r, j)) {
+                                    count++;
                                 }
                             }
                         }
@@ -330,13 +349,22 @@ public class ModelImpl implements Model{
             case 2:
                 count = 0;
                 for(int i = r - 1; i <= r+1; i++){
-                    for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
-                                if (isLamp(i, j)) {
-                                    if (!isLampIllegal(i, j)) {
-                                        count++;
-                                    }
+                    if(i < getActivePuzzle().getHeight() && i >= 0) {
+                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
+                            if (isLamp(i,c)) {
+                                if (!isLampIllegal(i, c)) {
+                                    count++;
+                                }
+                            }
+                        }
+                    }
+                }
+                for(int j = c - 1; j <= c + 1; j++){
+                    if(j < getActivePuzzle().getWidth() && j >= 0) {
+                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
+                            if (isLamp(r, j)) {
+                                if (!isLampIllegal(r, j)) {
+                                    count++;
                                 }
                             }
                         }
@@ -352,13 +380,22 @@ public class ModelImpl implements Model{
             case 3:
                 count = 0;
                 for(int i = r - 1; i <= r+1; i++){
-                    for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
-                                if (isLamp(i, j)) {
-                                    if (!isLampIllegal(i, j)) {
-                                        count++;
-                                    }
+                    if(i < getActivePuzzle().getHeight() && i >= 0) {
+                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
+                            if (isLamp(i,c)) {
+                                if (!isLampIllegal(i, c)) {
+                                    count++;
+                                }
+                            }
+                        }
+                    }
+                }
+                for(int j = c - 1; j <= c + 1; j++){
+                    if(j < getActivePuzzle().getWidth() && j >= 0) {
+                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
+                            if (isLamp(r, j)) {
+                                if (!isLampIllegal(r, j)) {
+                                    count++;
                                 }
                             }
                         }
@@ -374,13 +411,22 @@ public class ModelImpl implements Model{
             case 4:
                 count = 0;
                 for(int i = r - 1; i <= r+1; i++){
-                    for(int j = c - 1; j <= c + 1; j++){
-                        if(i < getActivePuzzle().getHeight() && c < getActivePuzzle().getWidth() && i >= 0 && j >= 0) {
-                            if(getActivePuzzle().getCellType(i,j) == CellType.CORRIDOR) {
-                                if (isLamp(i, j)) {
-                                    if (!isLampIllegal(i, j)) {
-                                        count++;
-                                    }
+                    if(i < getActivePuzzle().getHeight() && i >= 0) {
+                        if(getActivePuzzle().getCellType(i,c) == CellType.CORRIDOR) {
+                            if (isLamp(i,c)) {
+                                if (!isLampIllegal(i, c)) {
+                                    count++;
+                                }
+                            }
+                        }
+                    }
+                }
+                for(int j = c - 1; j <= c + 1; j++){
+                    if(j < getActivePuzzle().getWidth() && j >= 0) {
+                        if(getActivePuzzle().getCellType(r,j) == CellType.CORRIDOR) {
+                            if (isLamp(r, j)) {
+                                if (!isLampIllegal(r, j)) {
+                                    count++;
                                 }
                             }
                         }
@@ -392,6 +438,7 @@ public class ModelImpl implements Model{
                 else{
                     return false;
                 }
+
         }
         return false;
     }
