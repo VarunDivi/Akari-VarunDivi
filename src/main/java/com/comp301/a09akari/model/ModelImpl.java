@@ -288,8 +288,6 @@ public class ModelImpl implements Model{
                             return false;
                         }
                     }
-
-                    return false;
                 }
             }
         }
