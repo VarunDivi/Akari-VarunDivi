@@ -13,17 +13,17 @@ public class PuzzleImpl implements Puzzle{
 
     @Override
     public int getWidth() {
-        return board.length;
-    }
-
-    @Override
-    public int getHeight() {
         return board[0].length;
     }
 
     @Override
+    public int getHeight() {
+        return board.length;
+    }
+
+    @Override
     public CellType getCellType(int r, int c) {
-        if(r >= board.length && c >= board[r].length){
+        if(r >= getHeight() && c >= getWidth()){
             throw new IndexOutOfBoundsException();
         }
 

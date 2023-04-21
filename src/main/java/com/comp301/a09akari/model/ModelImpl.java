@@ -18,17 +18,19 @@ public class ModelImpl implements Model{
         this.library = library;
         modelObservers = new ArrayList<ModelObserver>();
         puzzleIndex = 0;
-
-
     }
-
 
     @Override
     public void addLamp(int r, int c) {
         if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
         }
-        lampList.add(new Lamp(r,c));
+        if(getActivePuzzle().getCellType(r,c) == CellType.CORRIDOR){
+            lampList.add(new Lamp(r,c));
+        }
+        else{
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override
