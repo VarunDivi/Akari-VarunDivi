@@ -38,7 +38,8 @@ public class ModelImpl implements Model{
         if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
             throw new IndexOutOfBoundsException();
         }
-        lampList.remove(new Lamp(r,c));
+        Lamp l = new Lamp(r,c);
+        lampList.remove(l);
     }
 
     @Override
@@ -65,6 +66,23 @@ public class ModelImpl implements Model{
 
     @Override
     public boolean isLampIllegal(int r, int c) {
+        if(r < 0 || c < 0 || r >= getActivePuzzle().getHeight() || c >= getActivePuzzle().getWidth()){
+            throw new IndexOutOfBoundsException();
+        }
+
+        if(!isLamp(r,c)){
+            throw new IllegalArgumentException();
+        }
+
+        for(Lamp l : lampList){
+            if(l.getCol() == c){
+                return true;
+            }
+            if(l.getRow() == r){
+                return true;
+            }
+        }
+
         return false;
     }
 
