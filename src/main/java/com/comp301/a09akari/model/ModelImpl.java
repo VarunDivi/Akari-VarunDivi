@@ -314,7 +314,7 @@ public class ModelImpl implements Model {
       }
     }
 
-      return count == getActivePuzzle().getClue(r, c);
+    return count == getActivePuzzle().getClue(r, c);
   }
 
   @Override
