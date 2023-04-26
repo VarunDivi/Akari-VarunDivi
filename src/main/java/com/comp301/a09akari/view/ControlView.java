@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 
 public class ControlView implements FXComponent{
 
@@ -22,15 +23,10 @@ public class ControlView implements FXComponent{
 
     @Override
     public Parent render() {
-        StackPane layout = new StackPane();
+        VBox layout = new VBox();
         layout.getStyleClass().add("controls-layout");
 
-        HBox hb = new HBox();
-        layout.getStyleClass().add("hbox-pane");
 
-        Label puzzleNum = new Label("Puzzle #: " + String.valueOf(((ControllerImpl) controller).getActivePuzzleIndex()));
-        puzzleNum.getStyleClass().add("puz-num");
-        hb.getChildren().add(puzzleNum);
 
 
         TilePane tp = new TilePane();
@@ -61,8 +57,22 @@ public class ControlView implements FXComponent{
         tp.getChildren().add(shuffleButton);
         tp.getChildren().add(next);
 
-        layout.getChildren().add(hb);
+
+        HBox reset_frame = new HBox();
+        reset_frame.getStyleClass().add("reset-frame");
+
+        Button resetButton = new Button("Reset");
+        resetButton.setOnAction((ActionEvent event) -> {
+            controller.clickResetPuzzle();
+        });
+        resetButton.getStyleClass().add("reset-button");
+
+        reset_frame.getChildren().add(resetButton);
+
+
+
         layout.getChildren().add(tp);
+        layout.getChildren().add(reset_frame);
         return layout;
     }
 }

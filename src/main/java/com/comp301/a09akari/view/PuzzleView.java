@@ -25,6 +25,7 @@ public class PuzzleView implements FXComponent{
     private Button makeButton(int r, int c){
         Button click;
 
+
         if (controller.getActivePuzzle().getCellType(r,c) == CellType.CORRIDOR) {
             click = new Button("");
             click.setOnAction((ActionEvent event) -> {
@@ -54,11 +55,11 @@ public class PuzzleView implements FXComponent{
             }
         }
         else{
-            click = new Button("W");
+            click = new Button("");
             click.getStyleClass().add("tile_wall");
         }
-        click.getStyleClass().add("tile");
 
+        click.getStyleClass().add("tile");
 
         return click;
     }
@@ -67,6 +68,7 @@ public class PuzzleView implements FXComponent{
     @Override
     public Parent render() {
         StackPane layout = new StackPane();
+        layout.getStyleClass().add("grid-layout");
 
         GridPane board = new GridPane();
         board.setHgap(10);
@@ -79,7 +81,7 @@ public class PuzzleView implements FXComponent{
         for(int i = 0; i < width; i++){
             for(int j = 0; j < height; j++){
                 //Ability to change row and col order
-                board.add(makeButton(i,j), j, i);
+                board.add(makeButton(j,i), i, j);
 
             }
         }

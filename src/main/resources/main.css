@@ -1,57 +1,46 @@
-.layout {
-  -fx-background-color: #faf8f0;
-  -fx-font-family: Arial, sans-serif;
-  -fx-font-weight: bold;
-  -fx-font-size: 12px;
-  -fx-padding: 10px;
+
+.whole-layout {
+  -fx-pref-width: 700px;
+  -fx-pref-height: 700px;
 }
 
-.scoreboard {
-  -fx-alignment: center-right;
-  -fx-spacing: 10px;
+
+.message-box {
+    -fx-background-color: #020717;
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
 }
 
-.logo {
-  -fx-text-fill: #ffffff;
-  -fx-background-color: #ecc400;
-  -fx-pref-width: 60px;
-  -fx-pref-height: 60px;
-  -fx-border-radius: 4px;
-  -fx-background-radius: 4px;
-  -fx-font-size: 22px;
-  -fx-alignment: center;
+.puz-num {
+    -fx-background-color: #020717;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 17px;
 }
 
-.score {
-  -fx-background-color: #bbada1;
-  -fx-background-radius: 4px;
-  -fx-padding: 10;
-  -fx-alignment: center;
+.solved {
+    -fx-background-color: #020717;
+    -fx-text-fill: #385985;
+    -fx-font-size: 17px;
 }
 
-.score-label {
-  -fx-text-fill: #ffffff;
-  -fx-font-size: 8px;
-}
-
-.score-value {
-  -fx-text-fill: #ffffff;
-  -fx-font-size: 20px;
-}
-
-.instructions {
-  -fx-text-fill: #766f65;
-  -fx-padding: 10 0 10 0; /* top, right, bottom, left */
+.unsolved {
+    -fx-background-color: #020717;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 17px;
 }
 
 .board {
+   -fx-pref-width: 500px;
+  -fx-pref-height: 500px;
   -fx-background-color: #020717;
   -fx-padding: 10px;
+  -fx-alignment: center;
+  -fx-position: fixed;
 }
 
 .tile {
-  -fx-pref-width: 35px;
-  -fx-pref-height: 35px;
+  -fx-pref-width: 40px;
+  -fx-pref-height: 40px;
   -fx-font-size: 17px;
   -fx-alignment: center;
   -fx-text-fill: #ffffff;
@@ -59,24 +48,31 @@
 }
 
 .tile_wall {
-  -fx-background-color: #f57c5e;
+  -fx-background-image: url('wall2.png');
+  -fx-background-size: cover;
+  -fx-background-color: #232830;
   -fx-font-size: 10px;
 }
 
 .tile_clue {
-  -fx-background-color: #00cefc;
+  -fx-background-color: #232830;
 }
 
 .clue_solved {
-  -fx-background-color: #00fc5c;
+  -fx-background-color: #385985;
 }
 
 .tile_lamp {
-  -fx-background-color: #ff270f;
+  -fx-background-image: url('light-bulb2.png');
+  -fx-background-size: cover;
+  -fx-background-color: #de7c04;
+
 }
 
 .tile_illegal {
-  -fx-background-color: #c70fff;
+  -fx-background-image: url('light-bulb2.png');
+  -fx-background-size: cover;
+  -fx-background-color: #73020a;
 }
 
 .tile_lit {
@@ -85,10 +81,9 @@
 
 
 .controls-layout {
+   -fx-padding: 37px;
    -fx-background-color: #0a0a0d;
-   -fx-padding: 40px;
    -fx-border-color: #2b2b40 ;
-   -fx-border-radius: 50;
 }
 
 .tile-pane {
@@ -113,6 +108,24 @@
 
 .prev-button {
     -fx-background-color: slateblue;
+    -fx-text-fill: white;
+    -fx-scale-x: 1.6;
+    -fx-scale-y: 1.6;
+    -fx-scale-z: 1.6;
+}
+
+.grid-layout {
+  -fx-background-color: #020717;
+  -fx-padding: 10px;
+  -fx-position: fixed;
+}
+
+.reset-frame {
+  -fx-position: right;
+}
+
+.reset-button {
+    -fx-background-color: #a12f43;
     -fx-text-fill: white;
     -fx-scale-x: 1.6;
     -fx-scale-y: 1.6;

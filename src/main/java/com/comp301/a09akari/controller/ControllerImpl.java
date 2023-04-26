@@ -47,6 +47,10 @@ public class ControllerImpl implements AlternateMvcController{
         int max = model.getPuzzleLibrarySize() - 1;
         int random_index = (int)Math.floor(Math.random() * (max - min + 1) + min);
 
+        while(random_index == getActivePuzzleIndex()){
+            random_index = (int)Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
         model.setActivePuzzleIndex(random_index);
     }
 
@@ -96,6 +100,11 @@ public class ControllerImpl implements AlternateMvcController{
 
     public int getActivePuzzleIndex() {
         return model.getActivePuzzleIndex();
+    }
+
+
+    public int getPuzzleLibrarySize() {
+        return model.getPuzzleLibrarySize();
     }
 
     @Override

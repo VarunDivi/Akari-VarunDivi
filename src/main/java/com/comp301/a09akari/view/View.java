@@ -19,10 +19,11 @@ public class View implements FXComponent {
         PuzzleView puzzleView = new PuzzleView(controller);
         MessageView messageView = new MessageView(controller);
 
-
+        layout.getChildren().add(messageView.render());
         layout.getChildren().add(puzzleView.render());
         layout.getChildren().add(controlView.render());
-        //layout.getChildren().add(messageView.render());
+
+        layout.getStyleClass().add("whole-layout");
 
 
         return layout;
