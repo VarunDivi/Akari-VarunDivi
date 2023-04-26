@@ -19,7 +19,6 @@ public class AppLauncher extends Application {
     puzzleLibrary.addPuzzle(new PuzzleImpl(SamplePuzzles.PUZZLE_04));
     puzzleLibrary.addPuzzle(new PuzzleImpl(SamplePuzzles.PUZZLE_05));
 
-
     Model model = new ModelImpl(puzzleLibrary);
 
     AlternateMvcController controller = new ControllerImpl(model);
@@ -29,13 +28,13 @@ public class AppLauncher extends Application {
     scene.getStylesheets().add("main.css");
     stage.setScene(scene);
 
-    model.addObserver((Model m) -> {
-      scene.setRoot(view.render());
-      stage.sizeToScene();
-    });
+    model.addObserver(
+        (Model m) -> {
+          scene.setRoot(view.render());
+          stage.sizeToScene();
+        });
 
     stage.setTitle("Akari: Light up game");
     stage.show();
-
   }
 }
