@@ -1,0 +1,135 @@
+
+.whole-layout {
+  -fx-pref-width: 700px;
+  -fx-pref-height: 700px;
+}
+
+
+.message-box {
+    -fx-background-color: #020717;
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+}
+
+.puz-num {
+    -fx-background-color: #020717;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 17px;
+}
+
+.solved {
+    -fx-background-color: #020717;
+    -fx-text-fill: #385985;
+    -fx-font-size: 17px;
+}
+
+.unsolved {
+    -fx-background-color: #020717;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 17px;
+}
+
+.board {
+   -fx-pref-width: 500px;
+  -fx-pref-height: 500px;
+  -fx-background-color: #020717;
+  -fx-padding: 10px;
+  -fx-alignment: center;
+  -fx-position: fixed;
+}
+
+.tile {
+  -fx-pref-width: 40px;
+  -fx-pref-height: 40px;
+  -fx-font-size: 17px;
+  -fx-alignment: center;
+  -fx-text-fill: #ffffff;
+  -fx-background-color: #fcfdff;
+}
+
+.tile_wall {
+  -fx-background-image: url('wall2.png');
+  -fx-background-size: cover;
+  -fx-background-color: #232830;
+  -fx-font-size: 10px;
+}
+
+.tile_clue {
+  -fx-background-color: #232830;
+}
+
+.clue_solved {
+  -fx-background-color: #385985;
+}
+
+.tile_lamp {
+  -fx-background-image: url('light-bulb2.png');
+  -fx-background-size: cover;
+  -fx-background-color: #de7c04;
+
+}
+
+.tile_illegal {
+  -fx-background-image: url('light-bulb2.png');
+  -fx-background-size: cover;
+  -fx-background-color: #73020a;
+}
+
+.tile_lit {
+  -fx-background-color: #edff91;
+}
+
+
+.controls-layout {
+   -fx-padding: 37px;
+   -fx-background-color: #0a0a0d;
+   -fx-border-color: #2b2b40 ;
+}
+
+.tile-pane {
+     -fx-alignment: center;
+}
+
+.shuffle-button {
+    -fx-background-color: slateblue;
+    -fx-text-fill: white;
+    -fx-scale-x: 1.6;
+    -fx-scale-y: 1.6;
+    -fx-scale-z: 1.6;
+}
+
+.next-button {
+    -fx-background-color: slateblue;
+    -fx-text-fill: white;
+    -fx-scale-x: 1.6;
+    -fx-scale-y: 1.6;
+    -fx-scale-z: 1.6;
+}
+
+.prev-button {
+    -fx-background-color: slateblue;
+    -fx-text-fill: white;
+    -fx-scale-x: 1.6;
+    -fx-scale-y: 1.6;
+    -fx-scale-z: 1.6;
+}
+
+.grid-layout {
+  -fx-background-color: #020717;
+  -fx-padding: 10px;
+  -fx-position: fixed;
+}
+
+.reset-frame {
+  -fx-position: right;
+}
+
+.reset-button {
+    -fx-background-color: #a12f43;
+    -fx-text-fill: white;
+    -fx-scale-x: 1.6;
+    -fx-scale-y: 1.6;
+    -fx-scale-z: 1.6;
+}
+
+
