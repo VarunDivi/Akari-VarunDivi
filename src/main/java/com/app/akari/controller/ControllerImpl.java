@@ -56,10 +56,7 @@ public class ControllerImpl implements AlternateMvcController {
 
   @Override
   public void clickCell(int r, int c) {
-    //        if(r < 0 || c < 0 || r >= model.getPuzzleLibrarySize() || c >=
-    // model.getPuzzleLibrarySize()){
-    //            throw new IndexOutOfBoundsException();
-    //        }
+
 
     if (model.getActivePuzzle().getCellType(r, c) == CellType.CORRIDOR) {
       if (isLamp(r, c)) {
@@ -68,8 +65,6 @@ public class ControllerImpl implements AlternateMvcController {
         model.addLamp(r, c);
       }
     }
-
-    System.out.println("Clicked");
   }
 
   @Override
@@ -79,10 +74,7 @@ public class ControllerImpl implements AlternateMvcController {
 
   @Override
   public boolean isLamp(int r, int c) {
-    //        if(r < 0 || c < 0 || r >= model.getPuzzleLibrarySize() || c >=
-    // model.getPuzzleLibrarySize()){
-    //            throw new IndexOutOfBoundsException();
-    //        }
+
     return model.isLamp(r, c);
   }
 
